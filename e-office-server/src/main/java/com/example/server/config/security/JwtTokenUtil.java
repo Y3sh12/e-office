@@ -47,7 +47,7 @@ public class JwtTokenUtil {
      * @param token
      * @return
      */
-    public String getUserNameFromToken(String token){
+    public String getUserNameFromToken(String token) {
         Claims claims = getClaimsFromToken(token);
         return claims.getSubject();
     }
@@ -56,7 +56,7 @@ public class JwtTokenUtil {
      * 判断token是否有效
      * @return
      */
-    public boolean validateToken(String token,UserDetails userDetails){
+    public boolean validateToken(String token,UserDetails userDetails) {
         String name = getUserNameFromToken(token);
         return name.equals(userDetails.getUsername()) && !isTokenExpire(token);
     }
@@ -131,7 +131,7 @@ public class JwtTokenUtil {
      * @param token
      * @return
      */
-    public String refreshToken(String token){
+    public String refreshToken(String token) {
         Claims claims = getClaimsFromToken(token);
         claims.put(CLAIMS_CREATED,new Date());
         return generatorToken(claims);

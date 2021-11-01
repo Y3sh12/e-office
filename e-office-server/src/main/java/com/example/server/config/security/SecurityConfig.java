@@ -36,6 +36,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
     }
 
+    /**
+     * @author dengyinshan 2021/11/1 19:28
+     * @description 资源放行
+     */
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers(
+                "/login",
+                "/logout",
+                "/css/**",
+                "/js/**",
+                "/index.html",
+                "/img/**",
+                "/fonts/**",
+                "/favicon.ico",
+                "/doc.html",
+                "/webjars/**",
+                "/swagger-resources/**",
+                "/v2/api-docs/**",
+                "/captcha",
+                "/ws/**"
+        );
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -46,8 +69,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login/**", "/logout/**")
-                .permitAll()
+                // 已在上面的方法中将指定资源放行，这里就不再需要了
+                // .antMatchers("/login/**", "/logout/**")
+                // .permitAll()
+                // （除了指定的资源路径）所有请求都要求认证
                 .anyRequest()
                 .authenticated()
                 .and()
