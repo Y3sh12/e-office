@@ -2,7 +2,6 @@ package com.example.server.service.impl;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.example.server.config.security.JwtTokenUtil;
 import com.example.server.pojo.Admin;
 import com.example.server.mapper.AdminMapper;
@@ -52,14 +51,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
      * @description 登录后返回token
      */
     @Override
-    public RespBean login(String username, String password, String code, HttpServletRequest request) {
-        // 获取验证码内容
-        String captcha = (String) request.getSession().getAttribute("captcha");
-        // 忽略大小写进行比对
-        if (StringUtils.isBlank(code) || !captcha.equals(code)) {
-            return RespBean.error("验证码错误，请重新输入！");
-        }
-
+    public RespBean login(String username, String password, HttpServletRequest request) {
         // 1.登录
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         // 判断用户是否存在
