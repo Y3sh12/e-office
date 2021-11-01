@@ -46,10 +46,10 @@
         </dependency>
 
         <!-- mybatis-plus 依赖 -->
-        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
+        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.4.1</version>
         </dependency>
 
@@ -100,7 +100,7 @@
             <version>0.9.1</version>
         </dependency>
 
-        <!-- GoogleKaptcha -->
+        <!-- GoogleKaptcha 验证码依赖 -->
         <dependency>
             <groupId>com.github.axet</groupId>
             <artifactId>kaptcha</artifactId>
