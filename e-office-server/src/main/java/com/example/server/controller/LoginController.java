@@ -36,7 +36,7 @@ public class LoginController {
     @ApiOperation("登录")
     @PostMapping("/login")
     public RespBean login(@RequestBody AdminLoginParam adminLoginParam, HttpServletRequest request) {
-        return adminService.login(adminLoginParam.getUsername(), adminLoginParam.getPassword(),request);
+        return adminService.login(adminLoginParam.getUsername(), adminLoginParam.getPassword(), adminLoginParam.getCode(), request);
     }
 
 
