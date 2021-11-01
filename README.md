@@ -115,11 +115,11 @@
 
         <!-- mybatis-plus 依赖 -->
         <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-            <version>3.4.1</version>
-        </dependency>
+    <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+        <version>3.4.1</version>
+    </dependency>
 
         <!-- 分⻚插件 -->
         <dependency>
