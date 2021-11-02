@@ -6,10 +6,9 @@ spring:
   # Redis配置
   redis:
     timeout: 10000ms # 连接超时时间
-    host: 192.168.10.100 # Redis服务器地址
+    host: 127.0.0.1 # Redis服务器地址
     port: 6379 # Redis服务器端口
-    # Redis服务器密码
-    password: root
+    # password: root # Redis服务器密码
     database: 0 # 选择哪个库，默认0库
     lettuce:
       pool:
