@@ -3,10 +3,12 @@ package com.example.server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.example.server.config.security.JwtTokenUtil;
+import com.example.server.config.security.component.JwtTokenUtil;
+import com.example.server.mapper.RoleMapper;
 import com.example.server.pojo.Admin;
 import com.example.server.mapper.AdminMapper;
 import com.example.server.pojo.RespBean;
+import com.example.server.pojo.Role;
 import com.example.server.service.IAdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -46,6 +49,8 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     private String tokenHead;
     @Resource
     private AdminMapper adminMapper;
+    @Resource
+    private RoleMapper roleMapper;
 
     /**
      * @author dengyinshan 2021/10/31 22:01
@@ -91,6 +96,15 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Override
     public Admin getUserByUsername(String username) {
         return adminMapper.selectOne(new QueryWrapper<Admin>().eq("username",username).eq("enabled",true));
+    }
+
+    /**
+     * @author dengyinshan 2021/11/3 22:17
+     * @description 根据用户ID查询角色列表
+     */
+    @Override
+    public List<Role> getRoles(Integer id) {
+        return roleMapper.getRoles(id);
     }
 
 }
