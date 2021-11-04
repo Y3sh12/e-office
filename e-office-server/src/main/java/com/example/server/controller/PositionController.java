@@ -26,7 +26,7 @@ import java.util.Map;
  * @since 2021-10-31
  */
 @RestController
-@RequestMapping("/system/manage/position")
+@RequestMapping("/system/basic/position")
 public class PositionController {
 
     @Autowired
@@ -52,9 +52,9 @@ public class PositionController {
     @PutMapping("/")
     public RespBean updatePosition(@RequestBody Position position) {
         if (positionService.updateById(position)) {
-            return RespBean.success("职位修改成功！");
+            return RespBean.success("职位更新成功！");
         }
-        return RespBean.error("职位修改失败！");
+        return RespBean.error("职位更新失败！");
     }
 
     @ApiOperation(value = "删除职位信息")
@@ -68,7 +68,7 @@ public class PositionController {
 
     @ApiOperation(value = "批量删除职位信息")
     @DeleteMapping("/")
-    public RespBean deletePositionByIds(Integer[] ids) {
+    public RespBean deletePositionsByIds(Integer[] ids) {
         if (positionService.removeByIds(Arrays.asList(ids))) {
             return RespBean.success("职位批量删除成功！");
         }
