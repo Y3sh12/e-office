@@ -20,9 +20,9 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("t_joblevel")
-@ApiModel(value="Joblevel对象", description="")
-public class Joblevel implements Serializable {
+@TableName("t_jobLevel")
+@ApiModel(value="JobLevel对象", description="")
+public class JobLevel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

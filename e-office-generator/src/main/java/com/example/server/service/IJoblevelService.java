@@ -1,6 +1,6 @@
 package com.example.server.service;
 
-import com.example.server.pojo.Joblevel;
+import com.example.server.pojo.JobLevel;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author dengyinshan
  * @since 2021-10-31
  */
-public interface IJoblevelService extends IService<Joblevel> {
+public interface IJobLevelService extends IService<JobLevel> {
 
 }

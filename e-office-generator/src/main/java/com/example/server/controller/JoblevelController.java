@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2021-10-31
  */
 @RestController
-@RequestMapping("/joblevel")
-public class JoblevelController {
+@RequestMapping("/jobLevel")
+public class JobLevelController {
 
 }
