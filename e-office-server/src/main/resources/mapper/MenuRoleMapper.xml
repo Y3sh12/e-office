@@ -14,4 +14,12 @@
         id, mid, rid
     </sql>
 
+    <!-- 批量更新该角色对应的所有菜单 -->
+    <insert id="insertRecord">
+        insert into t_menu_role(mid,rid) values
+        <foreach collection="mids" item="mid" separator=",">
+            (#{mid},#{rid})
+        </foreach>
+    </insert>
+
 </mapper>
